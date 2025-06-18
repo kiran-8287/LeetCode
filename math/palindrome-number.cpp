@@ -13,7 +13,6 @@ public:
         for (int i = 0; i < y.size() / 2; i++) {
             y[i] = y[y.size() - i - 1];
         }
-
         if (y == z) {
             return true;
         }
