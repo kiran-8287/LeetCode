@@ -16,8 +16,7 @@ public:
 
         if (y == z) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 };
