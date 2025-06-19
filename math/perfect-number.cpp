@@ -2,13 +2,11 @@ class Solution {
 public:
     bool checkPerfectNumber(int num) {
         if(num%2 == 1){return false;}
-        long sum = 0;
-        long temp = num;
-        while(temp > 0){
-            temp = temp /2 ;
-            sum += temp;
-            if(temp%2 == 1 && temp != 1){
-                temp+=1;
+        long sum =  1;
+        for(int i = 2; i*i < num; i++){
+            if(num%i == 0){
+                sum+=i;
+                sum+=num/i;
             }
         }
         if(sum == num){return true;}
