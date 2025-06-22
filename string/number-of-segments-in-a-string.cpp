@@ -4,7 +4,7 @@ public:
         if(s.empty()){return 0;}
         int count = 0;
         for(int i = 0; i < s.length(); i++){
-            if(s[i]==' '){
+            if(s[i] == ' ' && (isalpha(s[i-1]) || isalpha(s[i+1]))){
                 count += 1;
             }
         }
