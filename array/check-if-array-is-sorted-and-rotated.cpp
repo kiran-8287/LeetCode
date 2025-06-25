@@ -13,11 +13,8 @@ public:
         }
         vector<int> out;
         while(out.size() < s ){
-            if(k>s-1){
-                k = 0;
-            }
-            out.push_back(nums[k]);
-            k++;
+             out.push_back(nums[k]);
+            k = (k + 1) % s;
         }
         if(out == dub){return true;}
         return false;
