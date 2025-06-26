@@ -1,19 +1,24 @@
 class Solution {
 public:
     int findSpecialInteger(vector<int>& arr) {
-        double s = (25.00 /100.00) * arr.size();
-        for(int i = 0; i < arr.size() - 1; i++){
-            int count = 1;
-            for(int j = i+1; j < arr.size() ; j++){
-                if(arr[i] == arr[j]){
+        stack<int> nums;
+        int count = 1;
+        int max = 0;
+        for (int i = 0; i < arr.size(); i++) {
+            if (nums.empty()) {
+                nums.push(arr[i]);
+            } else {
+                if (arr[i] == nums.top()) {
                     count++;
-                    if(count > s){
+                    if (count > arr.size() / 4) {
                         return arr[i];
                     }
+                } else {
+                    count = 1;
                 }
             }
+            nums.push(arr[i]);
         }
         return arr[0];
-
     }
 };
