@@ -1,18 +1,23 @@
 class Solution {
 public:
     int nextGreaterElement(int n) {
-        int temp = n;
+        int m = n;
         vector<int> nums;
         while(n > 0){
             nums.push_back(n%10);
             n = n/10;
         }
         int val = 0;
-        sort(nums.begin(), nums.end());
-        for(int i = nums.size()-1; i >= 0; i--){
-            val= val*10 + nums[i]; 
+        reverse(nums.begin(), nums.end());
+        int temp = nums[nums.size()-1];
+        nums[nums.size()-1] = nums[nums.size()-2];
+        nums[nums.size()-2] = temp;
+
+        for(int i = 0; i < nums.size(); i++){
+            val = val*10 + nums[i];
         }
-        if(val > temp){return val;}
+        
+        if(val > m){return val;}
         return -1;
     }
 };
