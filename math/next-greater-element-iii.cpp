@@ -10,15 +10,21 @@ public:
         }
         int val = 0;
         reverse(nums.begin(), nums.end());
-        int temp = nums[nums.size()-1];
-        nums[nums.size()-1] = nums[nums.size()-2];
-        nums[nums.size()-2] = temp;
+        int s = nums.size() - 2;
+        while(s >= 0 && nums[s] >= nums[s+1]){
+            s--;
+        }
+        if(s<0){return -1;}
+        int temp = nums[s];
+        nums[s] = nums[s+1];
+        nums[s+1] = temp;
 
         for(int i = 0; i < nums.size(); i++){
             val = val*10 + nums[i];
         }
 
-        if(val > m){return val;}
+        if(val>m){return val;}
         return -1;
+
     }
 };
