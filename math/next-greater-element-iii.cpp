@@ -2,12 +2,17 @@ class Solution {
 public:
     int nextGreaterElement(int n) {
         int temp = n;
-        int num = 0;
+        vector<int> nums;
         while(n > 0){
-            num = (n%10) + num*10;
+            nums.push_back(n%10);
             n = n/10;
         }
-        if(num > temp){return num;}
+        int val = 0;
+        sort(nums.begin(), nums.end());
+        for(int i = nums.size()-1; i >= 0; i--){
+            val= val*10 + nums[i]; 
+        }
+        if(val > temp){return val;}
         return -1;
     }
 };
