@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool isUgly(int n) {
+        n = abs(n);
         while(n>1){
             if(n%2==0){
                 n = n/2;
