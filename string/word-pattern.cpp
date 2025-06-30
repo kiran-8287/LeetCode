@@ -13,6 +13,7 @@ public:
             }
         }
         words.push_back(word);
+        if(pattern.length() != words.size()){return false;}
 
         unordered_map<char, string> ps;
         unordered_map<string, char> sp;
