@@ -1,16 +1,16 @@
 class Solution {
 public:
     bool isUgly(int n) {
-        n = abs(n);
-        while(n>1){
-            if(n%2==0){
-                n = n/2;
+        long m = abs(n);
+        while(m>1){
+            if(m%2==0){
+                m = m/2;
             }
-            else if(n%3 == 0){
-                n = n/3;
+            else if(m%3 == 0){
+                m = m/3;
             }
-            else if(n%5 == 0){
-                n = n/5;
+            else if(m%5 == 0){
+                m = m/5;
             }
             else{
                 return false;
