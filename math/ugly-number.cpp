@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isUgly(int n) {
-        if(n < 0){return false;}
+        if(n <= 0){return false;}
         int m = n;
         while(m > 1 ){
             if(m%2==0){
