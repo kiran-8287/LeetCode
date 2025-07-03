@@ -18,7 +18,7 @@ public:
         }
         for(int i =0; i < position.size(); i++){
             if(position[i] != best_pos){
-                if((position[i] - best_pos)%2 == 1){
+                if(abs(position[i] - best_pos)%2 == 1){
                     cost++;
                 }
             }
