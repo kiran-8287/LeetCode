@@ -1,8 +1,8 @@
 class Solution {
 public:
     int minCostToMoveChips(vector<int>& position) {
-        int max = 0;
-        int best_pos;
+        int max_count = 0;
+        int best_pos = position[0];
         int cost = 0;
         for(int i = 0; i < position.size(); i++){
             int count = 0;
@@ -11,8 +11,8 @@ public:
                     count++;
                 }
             }
-            if(count>max){
-                max = count;
+            if(count>max_count){
+                max_count = count;
                 best_pos = position[i];
             }
         }
