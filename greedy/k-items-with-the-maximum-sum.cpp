@@ -27,8 +27,8 @@ public:
                 total = total - numNegOnes;
             }
             else{
-                count = k;
                 total = total - (k - count);
+                count = k;
             }
         }
         return total;
