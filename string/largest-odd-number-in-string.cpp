@@ -1,14 +1,14 @@
 class Solution {
 public:
     string largestOddNumber(string num) {
-        int n = stoi(num);
+        int n = num[num.length()-1] - '0';
         if(n%2==1){
             return num;
         }
 
         int index = -1;
         for(int i = num.length()-2; i >= 0 ; i--){
-            int m = stoi(to_string(num[i]));
+            int m = num[i] - '0';
             if(m%2 == 1){
                 index = i;
                 break;
