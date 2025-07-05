@@ -1,8 +1,8 @@
 class Solution {
 public:
     int hammingDistance(int x, int y) {
-        bitset<8> a (x);
-        bitset<8> b (y);
+        bitset<32> a (x);
+        bitset<32> b (y);
 
         string c = a.to_string();
         string d = b.to_string(); 
