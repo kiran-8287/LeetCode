@@ -8,7 +8,7 @@ public:
         string d = b.to_string(); 
 
         int count = 0;
-        for(int i = 0 ; i < 8; i++){
+        for(int i = 0 ; i < 32; i++){
             if(c[i] != d[i]){
                 count++;
             }
