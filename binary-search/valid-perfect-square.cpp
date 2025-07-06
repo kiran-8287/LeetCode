@@ -1,6 +1,9 @@
 class Solution {
 public:
     bool isPerfectSquare(int num) {
+        if(num == 0 || num == 1){
+            return num;
+        }
         int left = 0;
         int right  = num/2;
         while(left < right){
