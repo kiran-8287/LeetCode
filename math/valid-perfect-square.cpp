@@ -5,7 +5,7 @@ public:
             return num;
         }
         int left = 0;
-        int right  = num/2 + 1;
+        int right  = num/2 - 1;
         while(left < right){
             long mid = left + (right-left)/2;
             if(mid*mid == num){return true;}
