@@ -5,6 +5,11 @@ public:
         unordered_map<string, int> map;
         for(int i = 0; i < strs.size(); i++){
             vector<string> arr;
+            if(strs[i] == ""){
+                arr.push_back("");
+                out.push_back(arr);
+                continue;
+                }
             string temp1 = strs[i];
             sort(temp1.begin(), temp1.end());
             for(int j = i; j < strs.size(); j++){
