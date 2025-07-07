@@ -20,13 +20,11 @@ public:
                     temp.push_back(nums[right]);
                     left++;
                     right--;
-                    if (temp.empty() == false) {
-                        sort(temp.begin(), temp.end());
-                        if (find(out.begin(), out.end(), temp) == out.end()) {
-                            out.push_back(temp);
-                        }
-                        temp.clear();
+                    sort(temp.begin(), temp.end());
+                    if (find(out.begin(), out.end(), temp) == out.end()) {
+                        out.push_back(temp);
                     }
+                    temp.clear();
                 } else if (nums[i] + nums[left] + nums[right] < 0) {
                     left++;
                 } else if (nums[i] + nums[left] + nums[right] > 0) {
