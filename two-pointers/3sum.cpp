@@ -9,7 +9,8 @@ public:
                     continue;
                 }
             }
-
+            while (left < right && nums[left] == nums[left + 1]) left++;
+            while (left < right && nums[right] == nums[right - 1]) right--;
             int left = i + 1;
             int right = nums.size() - 1;
             vector<int> temp;
