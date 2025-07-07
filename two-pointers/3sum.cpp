@@ -13,17 +13,15 @@ public:
             }
             vector<int> temp;
             while (right > left) {
-                if (nums[left] == nums[left + 1]) {left++;}
-                if (nums[right] == nums[right - 1]) {right--;}
                 if (nums[i] + nums[left] + nums[right] == 0) {
                     temp.push_back(nums[i]);
                     temp.push_back(nums[left]);
                     temp.push_back(nums[right]);
+                    if (nums[left] == nums[left + 1]) {left++;}
+                    if (nums[right] == nums[right - 1]) {right--;}
                     left++;
                     right--;
-                    if (find(out.begin(), out.end(), temp) == out.end()) {
-                        out.push_back(temp);
-                    }
+                    out.push_back(temp);
                     temp.clear();
                 } else if (nums[i] + nums[left] + nums[right] < 0) {
                     left++;
