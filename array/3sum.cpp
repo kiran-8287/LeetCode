@@ -13,8 +13,8 @@ public:
             }
             vector<int> temp;
             while (right > left) {
-                while (left < right && nums[left] == nums[left + 1]) left++;
-                while (left < right && nums[right] == nums[right - 1]) right--;
+                if (nums[left] == nums[left + 1]) {left++;}
+                if (nums[right] == nums[right - 1]) {right--;}
                 if (nums[i] + nums[left] + nums[right] == 0) {
                     temp.push_back(nums[i]);
                     temp.push_back(nums[left]);
