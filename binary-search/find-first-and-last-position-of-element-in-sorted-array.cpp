@@ -22,8 +22,14 @@ public:
                 }
             }
             else if(nums[m] == target && m == 0){
-                out = {0,0};
-                return out;
+                if(nums[m+1] == target){
+                    out = {m,m+1};
+                    return out;
+                }
+                else{
+                    out = {0,0};
+                    return out;
+                }
             }
             else if(nums[m] < target){
                 l = m+1;
