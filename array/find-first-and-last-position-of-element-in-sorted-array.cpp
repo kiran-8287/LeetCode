@@ -16,6 +16,10 @@ public:
                     out = {m,m+1};
                     return out;
                 }
+                else{
+                    out = {m,m};
+                    return out;
+                }
             }
             else if(nums[m] < target){
                 l++;
