@@ -1,7 +1,9 @@
 class Solution {
 public:
     bool mergeTriplets(vector<vector<int>>& triplets, vector<int>& target) {
+        
         for (int i = 0; i < triplets.size(); i++) {
+            if(triplets[i] == target){return true;}
             for (int j = 0; j < triplets.size(); j++) {
                 if (i != j) {
                     triplets[j][0] = max(triplets[i][0], triplets[j][0]);
