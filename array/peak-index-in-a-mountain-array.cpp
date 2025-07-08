@@ -9,10 +9,10 @@ public:
                 return m;
             }
             else if(arr[m] > arr[m+1] && arr[m] < arr[m-1]){
-                r = m 
+                r = m ;
             }
             else if (arr[m] < arr[m+1] && arr[m] > arr[m-1]){
-                l = m
+                l = m;
             }
         }
         return arr[l];
