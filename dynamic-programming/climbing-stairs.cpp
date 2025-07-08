@@ -10,7 +10,9 @@ public:
         if(n<0){
             return 0;
         }
-        map[n] = climbStairs(n-1) + climbStairs(n-2);
+        if(map[n] == 0){
+            map[n] = climbStairs(n-1) + climbStairs(n-2);
+        }
         return map[n];
     }
 };
