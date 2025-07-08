@@ -22,7 +22,7 @@ public:
             return {-1,-1};
         }
         if(temp.size() > 2){
-            return {temp[0] , temp[1]};
+            return {min(temp.begin(), temp.end()) , max(temp.begin(), temp.end())};
         }
         sort(temp.begin(), temp.end());
         return temp;
