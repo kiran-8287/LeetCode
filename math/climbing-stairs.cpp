@@ -12,7 +12,10 @@ public:
         }
         if(map[n] == 0){
             map[n] = climbStairs(n-1) + climbStairs(n-2);
+            return map[n];
         }
-        return map[n];
+        else{
+            return map[n];
+        }
     }
 };
