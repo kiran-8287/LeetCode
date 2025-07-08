@@ -21,6 +21,9 @@ public:
         if(temp.size() == 0){
             return {-1,-1};
         }
+        if(temp.size() > 2){
+            return {temp[0] , temp[1]};
+        }
         sort(temp.begin(), temp.end());
         return temp;
     }
