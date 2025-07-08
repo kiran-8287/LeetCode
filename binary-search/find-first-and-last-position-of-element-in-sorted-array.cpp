@@ -5,7 +5,7 @@ public:
         if(nums.empty() == true){return out;}
         int l = 0;
         int r = nums.size()-1;
-        while(l<r){
+        while(l<=r){
             int m = (r+l)/2;
             if(nums[m] == target){
                 if(nums[m-1] == target){
