@@ -21,11 +21,15 @@ public:
                     return out;
                 }
             }
-            else if(nums[m] < target){
-                l++;
+            else if(nums[m] == target && m == 0){
+                out = {0,0};
+                return out;
             }
-            else{
-                r--;
+            else if(nums[m] < target){
+                l = m+1;
+            }
+            else if(nums[m] > target) {
+                r = m -1;
             }
         }
         return out;
