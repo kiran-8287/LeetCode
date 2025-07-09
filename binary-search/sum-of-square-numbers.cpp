@@ -5,7 +5,7 @@ public:
             return true;
         }
         int l = 0;
-        int r = c/2;
+        int r = pow(c,0.5);
         while(l<=r){
             if(pow(l,2) + pow(r,2) == c){
                 return true;
