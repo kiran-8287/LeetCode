@@ -2,6 +2,7 @@ class Solution {
 public:
     bool checkPossibility(vector<int>& nums) {
         int count = 0;
+        int m = nums[0];
         for(int i = 0; i < nums.size(); i++){
             if(i == nums.size()-1){
                 if(nums[i] < nums[i-1]){
@@ -9,12 +10,12 @@ public:
                     count++;
                 }
             }
-            else if(nums[i] > nums[i+1] ){
-                if(nums[i+1] > nums[0]){
+            else if(nums[i] > nums[i+1]){
+                if(i!=0 && nums[i+1] < nums[i-1]){
                     return false;
                 }
-                else{nums[i] = nums[i+1];
-                count++;}
+                nums[i] = nums[i+1];
+                count++;
             }      
         }
         if(count == 1){
