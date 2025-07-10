@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void countingsort(vector<int> arr, int s , int div) {
+    void countingsort(vector<int>& arr, int s , int div) {
         int count_arr[10];
         for (int i = 0; i < 10; i++) {
             count_arr[i] = 0;
@@ -20,7 +20,7 @@ public:
         }
     }
 
-    void radixsort(vector<int> arr, int s) {
+    void radixsort(vector<int>& arr, int s) {
         int max = arr[0];
         for (int i = 0; i < s; i++) {
             if (arr[i] > max) {
