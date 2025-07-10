@@ -7,7 +7,7 @@ public:
         vector<bool> isprime(n, true);
         isprime[0] = false;
         isprime[1] = false;
-        for(int i = 2; i < n; i++){
+        for(int i = 2; i*i < n; i++){
             if(isprime[i] == true){
                 for(long long p = (long long)i*(long long)i; p < n; p = p+i){
                     isprime[p] = false;
