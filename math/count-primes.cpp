@@ -1,19 +1,22 @@
 class Solution {
 public:
     int countPrimes(int n) {
-        if(n==0 || n==1 ){
+        if(n<=2){
             return 0;
         }
-        int out = 0;
+        vector<bool> isprime(n, true);
+        isprime[0] = false;
+        isprime[1] = false;
         for(int i = 2; i < n; i++){
-            bool prime = true;
-            for(int j = 2; j*j <= i; j++){
-                if(i != j && i%j==0){
-                    prime = false;
-                    break;
+            if(isprime[i] == true){
+                for(long long p = (long long)i*(long long)i; p < n; p = p+i){
+                    isprime[p] = false;
                 }
             }
-            if(prime == true){
+        }
+        int out = 0;
+        for(int i = 0; i < isprime.size(); i++){
+            if(isprime[i] == true){
                 out++;
             }
         }
