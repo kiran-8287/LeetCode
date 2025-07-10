@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void countingsort(vector<int>& arr, int s , int div) {
+    void countingsort(vector<int>& arr, int s , long long div) {
         vector<int> count_arr;
         for (int i = 0; i < 10; i++) {
             count_arr.push_back(0);
@@ -27,7 +27,7 @@ public:
                 maxval = arr[i];
             }
         }
-        for (int div = 1; maxval/div > 0; div*=10) {
+        for (long long div = 1; maxval/div > 0; div*=10) {
             countingsort(arr,s,div);
         }
     }
