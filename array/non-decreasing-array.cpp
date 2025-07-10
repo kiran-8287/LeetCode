@@ -1,6 +1,9 @@
 class Solution {
 public:
     bool checkPossibility(vector<int>& nums) {
+        if(nums.size() <= 1){
+            return true;
+        }
         int count = 0;
         int m = nums[0];
         for(int i = 0; i < nums.size(); i++){
@@ -18,7 +21,7 @@ public:
                 count++;
             }      
         }
-        if(count == 1){
+        if(count <= 1){
             return true;
         }
         return false;
