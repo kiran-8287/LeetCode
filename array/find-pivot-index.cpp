@@ -13,7 +13,7 @@ public:
             left = prefix[i];
             right = prefix[nums.size()] - prefix[i+1];
             if(left == right){
-                if(i < min){
+                if(i <= min){
                     min = i;
                     isfound = true;
                 }
