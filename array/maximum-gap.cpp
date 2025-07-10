@@ -21,13 +21,13 @@ public:
     }
 
     void radixsort(vector<int>& arr, int s) {
-        int max = arr[0];
+        int maxval = arr[0];
         for (int i = 0; i < s; i++) {
-            if (arr[i] > max) {
-                max = arr[i];
+            if (arr[i] > maxval) {
+                maxval = arr[i];
             }
         }
-        for (int div = 1; max/div > 0; div*=10) {
+        for (int div = 1; maxval/div > 0; div*=10) {
             countingsort(arr,s,div);
         }
     }
@@ -37,13 +37,13 @@ public:
             return 0;
         }
         radixsort(nums,nums.size());
-        int max = 0;
+        int maxval = 0;
         for(int i =0; i < nums.size()-1; i++){
             int temp = nums[i+1] - nums[i];
-            if (temp > max){
-                max = temp;
+            if (temp > maxval){
+                maxval = temp;
             }
         }
-        return max;
+        return maxval;
     }
 };
