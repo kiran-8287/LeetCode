@@ -15,7 +15,7 @@ public:
             }
         }
         int out = 0;
-        for(int i = 0; i < isprime.size(); i++){
+        for(int i = 2; i < isprime.size(); i++){
             if(isprime[i] == true){
                 out++;
             }
