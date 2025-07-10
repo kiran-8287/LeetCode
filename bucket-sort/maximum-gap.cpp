@@ -1,11 +1,11 @@
 class Solution {
 public:
     void countingsort(vector<int>& arr, int s , int div) {
-        int count_arr[10];
+        vector<int> count_arr;
         for (int i = 0; i < 10; i++) {
-            count_arr[i] = 0;
+            count_arr.push_back(0);
         }
-        int output_arr[s];
+        vector<int> output_arr(s);
         for(int i = 0; i < s; i++) {
             count_arr[(arr[i]/div)%10]++;
         }
