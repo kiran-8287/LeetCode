@@ -12,7 +12,7 @@ public:
     }
     bool isAdditiveNumber(string num) {
         if(num.length() < 3){
-            return true;
+            return false;
         }
         bool add = true;
         return check(num, 0 , add);
