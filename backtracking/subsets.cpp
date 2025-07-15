@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void getsubset(vector<int>& nums, vector<int> ans, int i, vector<vector<int>>& out ){
+    void getsubset(vector<int>& nums, vector<int> &ans, int i, vector<vector<int>>& out ){
         if(i==nums.size()){
             out.push_back(ans);
             return;
