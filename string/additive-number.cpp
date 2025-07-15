@@ -11,6 +11,9 @@ public:
         return check(num, i+1, add);
     }
     bool isAdditiveNumber(string num) {
+        if(num.length() < 3){
+            return true;
+        }
         bool add = true;
         return check(num, 0 , add);
     }
