@@ -8,7 +8,7 @@ public:
         int min1 = INT_MAX;
         int right = l;
         int start = 0;
-        while (right < nums.size()) {
+        while (start < nums.size()-right) {
             if (sum1 > 0) {
                 min1 = min(min1, sum1);
             }
@@ -27,7 +27,7 @@ public:
             sum2 += nums[i];
         }
         
-        while (right < nums.size()) {
+        while (start < nums.size()-right) {
             if (sum2 > 0) {
                 min2 = min(min2, sum2);
             }
