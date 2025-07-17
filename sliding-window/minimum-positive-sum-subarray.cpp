@@ -16,7 +16,7 @@ public:
         }
         if (sum2 > 0) {
                 min2 = min(min2, sum2);
-            }
+        }
         int right = l;
         int start = 0;
         while (right < nums.size()) {
