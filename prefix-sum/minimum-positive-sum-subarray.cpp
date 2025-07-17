@@ -5,7 +5,7 @@ class Solution {
 public:
     int minimumSumSubarray(vector<int>& nums, int l, int r) {
         int out = INT_MAX;
-        for (int i = l; i <= r; i++) {
+        for (int i = l; i <= r && i <= nums.size(); i++) {
             int sum = 0;
             for (int j = 0; j < i; j++) {
                 sum += nums[j];
