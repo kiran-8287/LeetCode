@@ -12,10 +12,10 @@ public:
         int min1 = 1000*100;
         int min2 = 1000*100;
         if (sum1 > 0) {
-                min1 = min(min1, sum1);
+                min1 = sum1;
         }
         if (sum2 > 0) {
-                min2 = min(min2, sum2);
+                min2 = sum2;
         }
         int right = l;
         int start = 0;
