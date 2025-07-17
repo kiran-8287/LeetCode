@@ -4,25 +4,15 @@ public:
         int l = 0;
         int r = 0;
         int out = 0;
-        int count = 0;
         unordered_map<char, int> map;
         while(r < s.length()){
-            if(map[s[r]] == 0 || map[s[r]] == 1 ){
-                map[s[r]] += 1;
-                count++;
-                r++;
+            map[s[r]]++;
+            while(map[s[r]] > 2){
+                map[s[l]] = map[s[l]] - 1;
+                l++;
             }
-            else{
-                while(map[s[r]] >= 2){
-                    map[s[l]] = map[s[l]] - 1;
-                    count--;
-                    l++;
-                }
-                map[s[r]] = map[s[r]] + 1;
-                count++;
-                r++;
-            }
-            out = max(out, count);
+            out = max(out, r-l+1);
+            r++;
         }
         return out;
     }
