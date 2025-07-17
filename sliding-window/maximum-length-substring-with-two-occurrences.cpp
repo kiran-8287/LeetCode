@@ -18,6 +18,8 @@ public:
                     count--;
                     l++;
                 }
+                map[s[r]] = map[s[r]] + 1;
+                count++;
                 r++;
             }
             out = max(out, count);
