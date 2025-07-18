@@ -4,7 +4,7 @@ public:
         int left = 0;
         int sum = 0;
         int right = 0;
-        int out = nums.size();
+        int out = nums.size()+1;
         for(int i = 0; i < nums.size(); i++){
             sum = sum + nums[right];
 
@@ -15,7 +15,7 @@ public:
             }
             right++;
         }
-        if(out == nums.size()){
+        if(out == nums.size()+1){
             return 0;
         }
         return out;
