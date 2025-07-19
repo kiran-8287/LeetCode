@@ -13,6 +13,7 @@ public:
             }
             else{
                 while(s[right] != s[left]){
+                    map[s[left]] = 0;
                     left++;
                 }
                 left++;
