@@ -2,6 +2,10 @@ class Solution {
 public:
     vector<string> summaryRanges(vector<int>& nums) {
         vector<string> out;
+        if(nums.size()==0){
+            return out;
+        }
+        
         int right = 1;
         int left = 0;
         int count = 0;
