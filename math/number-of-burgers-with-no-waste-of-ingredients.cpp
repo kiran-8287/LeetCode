@@ -12,6 +12,9 @@ public:
         }
         int j = (tomatoSlices - 2*cheeseSlices)/2;
         int s = (4*cheeseSlices - tomatoSlices)/2;
+        if(j < 0 || s < 0){
+            return {};
+        }
         return {j,s};
     }
 };
