@@ -4,7 +4,7 @@ public:
         if(tomatoSlices%2 == 1){
             return {};
         }
-        if(cheeseSlices >= tomatoSlices){
+        if(cheeseSlices > tomatoSlices){
             return {};
         }
         int j = (tomatoSlices - 2*cheeseSlices)/2;
