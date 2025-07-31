@@ -12,7 +12,7 @@ public:
                     goteven = true;
                 }
                 else{
-                    if(i%5 == 0 & goteven == true){
+                    if(i%5 == 0 && goteven == true){
                         count++;
                         goteven = false;
                     }
