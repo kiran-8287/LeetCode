@@ -18,6 +18,10 @@ public:
                     r = r + 2;
                     continue;
                 }
+                else{
+                    l++;
+                    r++;
+                }
             }
             else if(start[l] == 'R' && start[r] == 'X'){
                 if(result[l] == 'R'){
@@ -29,6 +33,10 @@ public:
                     l = l + 2;
                     r = r + 2;
                     continue;
+                }
+                else{
+                    l++;
+                    r++;
                 }
             }
             else{
