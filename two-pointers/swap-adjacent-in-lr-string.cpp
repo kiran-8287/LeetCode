@@ -4,6 +4,9 @@ public:
         if(start.length() < 2){
             return false;
         }
+        if(start == result){
+            return true;
+        }
         int l = 0;
         int r = 1;
         while(r < start.length()){
