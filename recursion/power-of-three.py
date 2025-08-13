@@ -7,8 +7,8 @@ class Solution(object):
         if(n==0):
             return False
         i = 0
-        while(i**3 <= n):
-            if(i**3 == n):
+        while(3**i <= n):
+            if(3**i == n):
                 return True
             i = i + 1
         return False
