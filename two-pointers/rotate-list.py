@@ -10,8 +10,9 @@ class Solution(object):
         :type k: int
         :rtype: Optional[ListNode]
         """
+        if(head == None or head.next == None ):
+            return head
         count = 0
-        
         while(count < k):
             right = head
             while(right.next.next != None):
