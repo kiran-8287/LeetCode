@@ -18,7 +18,8 @@ class Solution(object):
             temp = temp.next
             length += 1
         k = k % length
-        
+        if(k==0):
+            return head
         count = 0
         while(count < k):
             right = head
