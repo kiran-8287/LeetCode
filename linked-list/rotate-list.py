@@ -10,14 +10,15 @@ class Solution(object):
         :type k: int
         :rtype: Optional[ListNode]
         """
+        if(head == None or head.next == None ):
+            return head
         length = 0
         temp = head
         while(temp != None):
             temp = temp.next
             length += 1
         k = k % length
-        if(head == None or head.next == None ):
-            return head
+        
         count = 0
         while(count < k):
             right = head
