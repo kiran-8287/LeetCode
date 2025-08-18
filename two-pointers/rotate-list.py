@@ -12,23 +12,19 @@ class Solution(object):
         """
         if(head == None or head.next == None ):
             return head
-        length = 0
-        temp = head
-        while(temp != None):
-            temp = temp.next
+        length = 1
+        tail = head
+        while(tail.next != None):
+            tail = tail.next
             length += 1
         k = k % length
         if(k==0):
             return head
-        count = 0
-        while(count < k):
-            right = head
-            while(right.next.next != None):
-                right = right.next
-            right.next.next = head
-            head = right.next
-            right.next = None
-            count =count + 1
+        tail.next = head
+        n = length - k
+        new_tail = head
+        for i in range(n-1):
+            new_tail = new_tail.next
+        head = new_tail.next
+        new_tail.next = None
         return head
-        
-            
