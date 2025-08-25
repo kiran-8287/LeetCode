@@ -11,17 +11,17 @@ class Solution(object):
         :type right: int
         :rtype: Optional[ListNode]
         """
-        if(head == None or left == right):
-            return head
-        temp = head
-        prev = head
-        for i in range(left-2):
+        dummy = ListNode(0)
+        dummy.next = head
+        prev = dummy
+
+        for i in range(left-1):
             prev = prev.next
         current = prev.next
-        for j in range(right-left):
+        for j in range(right - left):
             nxt = current.next
             current.next = nxt.next
             nxt.next = prev.next
             prev.next = nxt
         
-        return temp
+        return dummy.next
