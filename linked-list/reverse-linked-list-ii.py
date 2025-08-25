@@ -11,6 +11,8 @@ class Solution(object):
         :type right: int
         :rtype: Optional[ListNode]
         """
+        if(head == None or left == right):
+            return head
         dummy = ListNode(0)
         dummy.next = head
         prev = dummy
