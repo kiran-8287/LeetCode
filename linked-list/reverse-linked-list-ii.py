@@ -13,6 +13,7 @@ class Solution(object):
         """
         if(head == None or left == right):
             return head
+        temp = head
         prev = head
         for i in range(left-2):
             prev = prev.next
@@ -23,4 +24,4 @@ class Solution(object):
             nxt.next = prev.next
             prev.next = nxt
         
-        return head
+        return temp
