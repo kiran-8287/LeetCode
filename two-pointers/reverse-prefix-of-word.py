@@ -7,21 +7,13 @@ class Solution(object):
         """
         if(ch not in word):
             return word
-        right = 0
-        s = []
-        
+        right = 0        
         for i in range(len(word)):
             if(word[i] == ch):
-                s.append(word[i])
                 break
             else:
                 right = right + 1
-                s.append(word[i])
+        sub = word[0: right+1]
         temp = word[right+1:]
-        sub = ""
-        while(s != []):
-            sub = sub + s.pop()
-        return sub + temp
-
-
-        
+        rev = sub[::-1]
+        return rev+temp
