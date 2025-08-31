@@ -1,11 +1,11 @@
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
-        k = k%nums.size();
-        for(int i = 0; i < k; i++){
-            vector<int> temp(nums.begin() + 0, nums.begin() + nums.size()-1);
-            temp.insert(temp.begin(), nums[nums.size()-1]);
-            nums = temp;
+        k = k % nums.size();
+        vector<int> out(nums.size(), 0);
+        for(int i = 0; i < nums.size(); i++){
+            out[(i+k)%nums.size()] = nums[i];
         }
+        nums = out;
     }
 };
