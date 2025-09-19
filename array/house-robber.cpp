@@ -1,17 +1,12 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        int odd = 1;
-        int even = 0;
-        int sum_odd = 0;
-        int sum_even = 0;
-        while(odd<= nums.size()-1 || even <= nums.size()-1){
-            if(odd<= nums.size()-1){sum_odd += nums[odd];
-            odd+= 2;}
-            if(even <= nums.size()-1){sum_even += nums[even];
-            even+= 2;}
+        vector<int> dp(nums.size(),0);
+        dp[0] = nums[0];
+        dp[1] = max(nums[0],nums[1]);
+        for(int i = 2; i < nums.size();i++){
+            dp[i] = max(dp[i-1], dp[i-2]+nums[i]);
         }
-        int out = max(sum_even, sum_odd);
-        return out;
+        return dp[nums.size()-1];
     }
 };
