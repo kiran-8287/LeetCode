@@ -26,6 +26,6 @@ public:
         if(abs(l-r) > 1){
             return false;
         }
-        return true;
+        return (isBalanced(root->left) && isBalanced(root->right));
     }
 };
