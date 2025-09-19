@@ -19,9 +19,6 @@ public:
         if(sum == targetSum && root->left == nullptr && root->right == nullptr){
             return true;
         }
-        else if(sum == targetSum && (root->left != nullptr || root->right != nullptr)){
-            return false;
-        }
         return (hasPathSum(root->left,targetSum - sum) || hasPathSum(root->right,targetSum - sum));
     }
 };
