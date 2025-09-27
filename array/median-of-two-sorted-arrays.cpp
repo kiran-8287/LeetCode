@@ -21,6 +21,12 @@ public:
                 med2 = nums2[m/2];
             }
         }
+        if(n == 0){
+            return med2;
+        }
+        if(m == 0){
+            return med1;
+        }
         return (med1+med2)/2.0;
     }
 };
