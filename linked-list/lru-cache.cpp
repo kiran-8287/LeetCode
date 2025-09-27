@@ -45,10 +45,17 @@ public:
     }
     
     void put(int key, int value) {
+        if(map.find(key) != map.end()){
+            map[key]->val = value;
+            remove(map[key]);
+            insert(map[key]);
+            return;
+        }
         if(map.size() == capacity){
             Node* node = tail->prev;
             remove(node);
             map.erase(node->key);
+            delete node;
         }
         Node* newNode = new Node(key,value);
         insert(newNode);
