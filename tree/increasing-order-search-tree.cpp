@@ -21,7 +21,7 @@ public:
     }
     TreeNode* increasingBST(TreeNode* root) {
         if(root == NULL){
-            return;
+            return root;
         }
         vector<TreeNode*> nums;
         inorder(root,nums);
@@ -33,7 +33,6 @@ public:
             temp->left = NULL;
             temp = temp->right;
         }
-        temp->left = NULL;
         temp->right = NULL;
         return new_root;
     }
