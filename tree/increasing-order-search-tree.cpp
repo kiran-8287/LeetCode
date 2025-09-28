@@ -33,6 +33,7 @@ public:
             temp->left = NULL;
             temp = temp->right;
         }
+        temp->left = NULL;
         temp->right = NULL;
         return new_root;
     }
