@@ -20,6 +20,9 @@ public:
         inorder(root->right,nums);
     }
     TreeNode* increasingBST(TreeNode* root) {
+        if(root == NULL){
+            return;
+        }
         vector<TreeNode*> nums;
         inorder(root,nums);
 
