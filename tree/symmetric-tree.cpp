@@ -21,12 +21,9 @@ public:
         return(node1->val == node2->val) && (helper(node1->left,node2->right) && helper(node1->right,node2->left));
     }
     bool isSymmetric(TreeNode* root) {
-        if(root->left == nullptr and root->right == nullptr){
+        if (root == nullptr){
             return true;
         }
-        if(root->left == nullptr or root->right == nullptr){
-            return false;
-        }
-        return (root->left->val == root->right->val) && (helper(root->left->left,root->right->right) && helper(root->left->right, root->right->left));
+        return helper(root->left, root->right);
     }
 };
