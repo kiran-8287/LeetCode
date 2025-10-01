@@ -1,7 +1,7 @@
 class Solution {
 public:
+    unordered_map<int , int> map;
     int climbStairs(int n) {
-        unordered_map<int , int> map;
         if(n==0){
             return 1;
         }
