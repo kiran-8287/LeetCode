@@ -1,67 +1,91 @@
 class LRUCache {
 public:
-    int capacity;
     class Node{
         public:
-            Node* next;
-            Node* prev;
-            int key;
-            int val;
-            Node(int k, int v){
-                key = k;
-                val = v;
-                next = NULL;
-                prev = NULL;
-            }
+        Node* next;
+        Node* prev;
+        int key ,value;
+        Node(int key, int value){
+            this->key = key;
+            this->value = value;
+            this->next = nullptr;
+            this->prev = nullptr;
+        }
     };
-    unordered_map<int , Node*> map;
     Node* head = new Node(-1,-1);
     Node* tail = new Node(-1,-1);
+    unordered_map<int, Node*> map;
+    int capacity = 0;
+
+    void del(Node* node){
+        if(head->next == tail->prev){
+            head->next = tail;
+            tail->prev = head;
+            return;
+        }
+        if(node->next == tail){
+            node->prev->next = tail;
+            tail->prev = node->prev;
+            node->prev = nullptr;
+            node->next = nullptr;
+            return;
+        }
+        node->prev->next = node->next;
+        node->next->prev = node->prev;
+        node->prev = nullptr;
+        node->next = nullptr;
+        return;
+    }
+
+    void insert(Node* node){
+        if(head->next == tail){
+            head->next = node;
+            node->next = tail;
+            node->prev = head;
+            tail->prev = node;
+            return;
+        }
+        node->next = head->next;
+        head->next->prev = node;
+        node->prev = head;
+        head->next = node;
+    }
+
     LRUCache(int capacity) {
         this->capacity = capacity;
         head->next = tail;
         tail->prev = head;
     }
-    void remove(Node* node){
-        node->prev->next = node->next;
-        node->next->prev = node->prev;
-    }
 
-    void insert(Node* node){
-        Node* temp = head->next;
-        head->next = node;
-        node->next = temp;
-        temp->prev = node;
-        node->prev = head;
-    }
     int get(int key) {
-        if (map.find(key) == map.end()) {
+        if(map.find(key) == map.end()){
             return -1;
         }
         Node* node = map[key];
-        remove(node);
+        del(node);
         insert(node);
-        return node->val;
+        return map[key]->value;
     }
     
     void put(int key, int value) {
         if(map.find(key) != map.end()){
-            map[key]->val = value;
-            remove(map[key]);
-            insert(map[key]);
+            map[key]->value = value;
+            Node* node = map[key];
+            del(node);
+            insert(node);
             return;
         }
         if(map.size() == capacity){
-            Node* node = tail->prev;
-            remove(node);
-            map.erase(node->key);
-            delete node;
+            map.erase(tail->prev->key);
+            del(tail->prev);
+
         }
-        Node* newNode = new Node(key,value);
-        insert(newNode);
-        map[key] = newNode;
+        Node* node = new Node(key, value);
+        insert(node);
+        map[key] = node;
     }
 };
+
 
 /**
  * Your LRUCache object will be instantiated and called as such:
