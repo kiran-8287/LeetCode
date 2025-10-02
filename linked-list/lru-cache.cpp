@@ -18,18 +18,6 @@ public:
     int capacity = 0;
 
     void del(Node* node){
-        if(head->next == tail->prev){
-            head->next = tail;
-            tail->prev = head;
-            return;
-        }
-        if(node->next == tail){
-            node->prev->next = tail;
-            tail->prev = node->prev;
-            node->prev = nullptr;
-            node->next = nullptr;
-            return;
-        }
         node->prev->next = node->next;
         node->next->prev = node->prev;
         node->prev = nullptr;
@@ -38,13 +26,6 @@ public:
     }
 
     void insert(Node* node){
-        if(head->next == tail){
-            head->next = node;
-            node->next = tail;
-            node->prev = head;
-            tail->prev = node;
-            return;
-        }
         node->next = head->next;
         head->next->prev = node;
         node->prev = head;
