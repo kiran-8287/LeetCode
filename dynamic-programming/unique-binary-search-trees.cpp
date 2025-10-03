@@ -1,18 +1,17 @@
 class Solution {
 public:
     int numTrees(int n) {
-        if(n==1){
-            return 1;
-        }
-        long long num = 1;
-        long long d1 = 1;
+        vector<int> store(n+1 ,1);
 
-        for(int i = 1; i < n+1; i++){
-            d1 = d1 * i;
+        for(int i = 2; i < n +1 ; i++){
+            int total = 0;
+            for(int j = 1; j < i+1; j++){
+                int left = j-1;
+                int right = i-j;
+                total += store[left] * store[right];
+            }
+            store[i] = total;
         }
-        for(int i = 2*n; i > n+1; i--){
-            num = num*i;
-        }
-        return num/d1;
+        return store[n];
     }
 };
