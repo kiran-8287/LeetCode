@@ -1,22 +1,24 @@
 class Solution {
 public:
     bool check(vector<int>& nums) {
-        int s = nums.size();
-        int k = 0;
-        vector<int> dub = nums;
-        sort(dub.begin(), dub.end());
-        for(int i = 0; i < nums.size(); i++){
-            if(nums[i] == dub[0]){
-                k =i;
+        int idx = 0;
+        for(int i = 1; i < nums.size(); i++){
+            if(nums[i-1] > nums[i]){
+                idx = i;
                 break;
             }
         }
-        vector<int> out;
-        while(out.size() < s ){
-             out.push_back(nums[k]);
-            k = (k + 1) % s;
+        int start_idx = idx;
+        int n = nums.size();
+        while(true){
+            if((idx+1)%n != start_idx && nums[idx] > nums[(idx+1)%n]){
+                return false;
+            }
+            idx = (idx+1)%n;
+            if(idx == start_idx){
+                break;
+            }
         }
-        if(out == dub){return true;}
-        return false;
+        return true;
     }
 };
