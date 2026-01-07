@@ -12,7 +12,7 @@
 class Solution {
 public:
     int totalsum(TreeNode* root){
-        int sum = 0;
+        long long sum = 0;
         stack<TreeNode*> st;
         st.push(root);
         while(!st.empty()){
@@ -24,7 +24,7 @@ public:
         }
         return sum;
     }
-    vector<int> allsubtreesums;
+    vector<long long> allsubtreesums;
     int dfs(TreeNode* root){
             if(!root) return 0;
             int leftsum = dfs(root->left);
@@ -33,16 +33,16 @@ public:
             allsubtreesums.push_back(total);
             return total;
     }
-    vector<int> subtreesum(TreeNode* root){
+    vector<long long> subtreesum(TreeNode* root){
         dfs(root);
         return allsubtreesums;
     }
 
     int maxProduct(TreeNode* root) {
         if(root == nullptr) return 0;
-        int total_sum = totalsum(root);
-        vector<int> sumlist = subtreesum(root);
-        int out = 0;
+        long long total_sum = totalsum(root);
+        vector<long long> sumlist = subtreesum(root);
+        long long out = 0;
         for(int i = 0; i < sumlist.size(); i++){
             int subtree_sum = sumlist[i];
             out = max(out, (total_sum - subtree_sum) * subtree_sum);
