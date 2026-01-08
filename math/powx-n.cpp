@@ -5,8 +5,13 @@ public:
             return 1;
         }
         else if(n < 0){
-            return (1/x)*myPow(x,n+1);
+            x = 1.0/x;
+            n = -n;
         }
-        return x*myPow(x,n-1);
+        double half = myPow(x,n/2);
+        if(n%2==0){
+            return half*half;
+        }
+        return x*half*half;
     }
 };
