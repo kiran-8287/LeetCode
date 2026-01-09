@@ -57,6 +57,6 @@ public:
         if(deepnodes.size() == 1){
             return deepnodes[0];
         }
-        return lowestCommonAncestor(root,deepnodes[0],deepnodes[1]);
+        return lowestCommonAncestor(root,deepnodes[0],deepnodes.back());
     }
 };
