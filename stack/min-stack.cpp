@@ -9,7 +9,7 @@ public:
             m.push(val);
         }
         else{
-            if(val < m.top()){
+            if(val <= m.top()){
                 m.push(val);
             }
         }
