@@ -36,24 +36,27 @@ public:
         }
         return level;
     }
-    TreeNode* getparent(TreeNode* root, TreeNode* child){
-        if(root == nullptr || root == child){
-            return nullptr;
-        }
-        if(root->left == child || root->right == child){
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(root == nullptr || p == root || q == root){
             return root;
         }
-        TreeNode* l = getparent(root->left,child);
-        if(l != nullptr){
-            return l;
+        TreeNode* left = lowestCommonAncestor(root->left,p,q);
+        TreeNode* right = lowestCommonAncestor(root->right,p,q);
+        if(left == nullptr){
+            return right;
         }
-        return getparent(root->right, child);
+        else if(right == nullptr){
+            return left;
+        }
+        else{
+            return root;
+        }
     }
     TreeNode* subtreeWithAllDeepest(TreeNode* root) {
         vector<TreeNode*> deepnodes = getdeepest(root);
         if(deepnodes.size() == 1){
             return deepnodes[0];
         }
-        return getparent(root,deepnodes[0]);
+        return lowestCommonAncestor(root,deepnodes[0],deepnodes[1]);
     }
 };
