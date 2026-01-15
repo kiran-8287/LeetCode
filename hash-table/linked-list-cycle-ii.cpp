@@ -15,10 +15,12 @@ public:
             fast = fast->next->next;
             slow = slow->next;
             if(slow == fast){
-                if(slow == head){
-                    return head;
+                fast = head;
+                while(fast != slow){
+                    slow = slow->next;
+                    fast = fast->next;
                 }
-                return slow->next;
+                return slow;
             }
         }
         return nullptr;
