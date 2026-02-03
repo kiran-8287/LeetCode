@@ -13,6 +13,9 @@ public:
                 break;
             }
             if(s[i] == '-' || s[i] == '+') {
+                if(i > 0 and s[i-1] !=' '){
+                    break;
+                }
                 if (signSeen==false && temp == "") {
                     signSeen = true;
                     if (s[i] == '-'){
@@ -26,6 +29,9 @@ public:
             }
             if (isdigit(s[i])==false){
                 break;
+            }
+            if(s[i]=='0' and temp ==""){
+                continue;
             }
             temp += s[i];
         }
