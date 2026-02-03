@@ -2,40 +2,43 @@ class Solution {
 public:
     int myAtoi(string s) {
         int sign = 1;
+        bool signSeen = false;
         string temp = "";
-        for(int i =0; i < s.size(); i++){
-            if(s[i] == ' '){
-                if(temp == ""){
+
+        for (int i = 0; i < s.size(); i++) {
+            if(s[i] == ' ') {
+                if (temp == "" && signSeen==false){
                     continue;
                 }
                 break;
             }
-            if(s[i]=='-' or s[i]=='+'){
-                if(i == 0 or (i > 0 and s[i-1] == ' ')){
-                    if(s[i]=='-'){sign = -1;}
+            if(s[i] == '-' || s[i] == '+') {
+                if (signSeen==false && temp == "") {
+                    signSeen = true;
+                    if (s[i] == '-'){
+                        sign = -1;
+                    }
                     continue;
-                }
+                } 
                 else{
                     break;
                 }
             }
-            if(!isdigit(s[i]) or s[i]==' '){
+            if (isdigit(s[i])==false){
                 break;
             }
-            else{
-                temp += s[i];
-            }
+            temp += s[i];
         }
-        if(temp == ""){
+        if (temp == ""){
             return 0;
         }
         long long x = stoll(temp)*sign;
-        if(x > INT_MAX){
+        if (x > INT_MAX){
             return INT_MAX;
         }
-        if(x < INT_MIN){
+        if (x < INT_MIN){
             return INT_MIN;
         }
-        return x;
+        return (int)x;
     }
 };
