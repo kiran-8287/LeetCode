@@ -30,6 +30,12 @@ public:
             if (isdigit(s[i])==false){
                 break;
             }
+            if(s[i]=='0' and temp ==""){
+                if(s[i+1]==' '){
+                    break;
+                }
+                continue;
+            }
             temp += s[i];
         }
         if (temp == ""){
