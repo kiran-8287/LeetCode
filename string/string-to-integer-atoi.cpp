@@ -30,9 +30,6 @@ public:
             if (isdigit(s[i])==false){
                 break;
             }
-            if(s[i]=='0' and temp ==""){
-                continue;
-            }
             temp += s[i];
         }
         if (temp == ""){
