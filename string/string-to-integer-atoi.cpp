@@ -29,7 +29,7 @@ public:
         if(temp == ""){
             return 0;
         }
-        long long x = stoi(temp);
+        long long x = stoll(temp);
         if(x > INT_MAX){
             return INT_MAX;
         }
