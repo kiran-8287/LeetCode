@@ -29,10 +29,13 @@ public:
         if(temp == ""){
             return 0;
         }
-        long long x = stoll(temp);
+        long long x = stoll(temp)*sign;
         if(x > INT_MAX){
             return INT_MAX;
         }
-        return x*sign;
+        if(x < INT_MIN){
+            return INT_MIN;
+        }
+        return x;
     }
 };
