@@ -7,8 +7,8 @@ public:
         int r = n-1;
         int curr = n-1;
         while(l <= r){
-            int ls = pow(nums[l],2);
-            int rs = pow(nums[r],2);
+            int ls = nums[l]*nums[l];
+            int rs = nums[r]*nums[r];
             if(ls < rs){
                 res[curr] = rs;
                 r--;
