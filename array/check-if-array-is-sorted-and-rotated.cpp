@@ -1,20 +1,16 @@
 class Solution {
 public:
     bool check(vector<int>& nums) {
-        vector<int> temp = nums;
-        sort(temp.begin(),temp.end());
-        int x = nums[0] - temp[0];
-        if(x == 0 and nums == temp){
+        int n = nums.size();
+        int count = 0;
+        for(int i = 0; i < n; i++){
+            if(nums[i] > nums[(i+1)%n]){
+                count++;
+            }
+        }
+        if(count <= 1){
             return true;
         }
-        for(int i =0; i < temp.size(); i++){
-            if(temp[i] == nums[(i+x+1) % nums.size()]){
-                continue;
-            }
-            else{
-                return false;
-            }
-        }
-        return true;
+        return false;
     }
 };
