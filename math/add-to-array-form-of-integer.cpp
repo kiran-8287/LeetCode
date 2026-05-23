@@ -1,10 +1,10 @@
 class Solution {
 public:
     vector<int> addToArrayForm(vector<int>& num, int k) {
-        int temp = 0;
+        long long temp = 0;
         int n = num.size();
         for(int i =0; i < n; i++){
-            temp += pow(10,n-i-1)*num[i];
+            temp += (long long)pow(10,n-i-1)*num[i];
         }
         int res = temp+k;
         vector<int> ans;
