@@ -15,7 +15,7 @@ public:
                 int l = j+1;
                 int r = n-1;
                 while(l < r){
-                    int sum = nums[i]+nums[j]+nums[l]+nums[r];
+                    long long sum = (long long)nums[i]+nums[j]+nums[l]+nums[r];
                     if(sum < target){
                         l++;
                     }
