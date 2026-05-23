@@ -10,9 +10,10 @@ public:
                 k += num[i];
                 i--;
             }
-            res.insert(res.begin(),k%10);
+            res.push_back(k%10);
             k = k/10;
         }
+        reverse(res.begin(),res.end());
         return res;
     }
 };
