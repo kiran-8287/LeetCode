@@ -8,7 +8,7 @@ public:
             int l = i+1;
             int r = n-1;
             while(l < r){
-                int sum = nums[i]+nums[l]+nums[r];
+                long long sum = (long long)nums[i]+nums[l]+nums[r];
                 if(abs(target-sum) < abs(target-near)){
                     near = sum;
                 }
