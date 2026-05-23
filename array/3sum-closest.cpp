@@ -15,7 +15,7 @@ public:
                 if(sum < target){
                     l++;
                 }
-                if(sum > target){
+                else{
                     r--;
                 }
             }
