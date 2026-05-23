@@ -12,15 +12,14 @@ public:
                 if(j > 1 && nums[j] == nums[j-1]){
                     continue;
                 }
-                int diff = target - nums[i] - nums[j];
                 int l = j+1;
                 int r = n-1;
                 while(l < r){
-                    int sum = nums[l]+nums[r];
-                    if(sum < diff){
+                    int sum = nums[i]+nums[j]+nums[l]+nums[r];
+                    if(sum < target){
                         l++;
                     }
-                    else if(sum > diff){
+                    else if(sum > target){
                         r--;
                     }
                     else{
