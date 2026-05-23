@@ -1,22 +1,15 @@
 class Solution {
 public:
     vector<int> addToArrayForm(vector<int>& num, int k) {
-        int n = num.size();
-        int carry = 0;
+        int n = 0;
         vector<int> res;
-        for(int i = n-1; i >= 0; i--){
-            int sum = num[i] + k%10 + carry;
-            if(sum > 9){
-                carry = 1;
-            }
-            else{
-                carry = 0;
-            }
-            k = k/10;
-            res.insert(res.begin(),sum%10);
-            if(i == 0 && carry == 1 && res[0] == 0){
-                res.insert(res.begin(),1);
-            }
+        for(int i = 0; i < num.size(); i++){
+            n = n + num[i]*pow(10,num.size()-1-i);
+        }
+        int ans = n + k;
+        while(ans > 0){
+            res.insert(res.begin(),ans%10);
+            ans = ans/10;
         }
         return res;
     }
