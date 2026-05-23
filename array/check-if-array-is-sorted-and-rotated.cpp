@@ -1,22 +1,18 @@
 class Solution {
 public:
     bool check(vector<int>& nums) {
-        int idx = 0;
-        for(int i = 1; i < nums.size(); i++){
-            if(nums[i-1] > nums[i]){
-                idx = i;
-                break;
-            }
+        vector<int> temp = nums;
+        sort(temp.begin(),temp.end());
+        int x = nums[0] - temp[0];
+        if(x == 0 and nums == temp){
+            return true;
         }
-        int start_idx = idx;
-        int n = nums.size();
-        while(true){
-            if((idx+1)%n != start_idx && nums[idx] > nums[(idx+1)%n]){
-                return false;
+        for(int i =0; i < temp.size(); i++){
+            if(temp[i] == nums[(i+x+1) % nums.size()]){
+                continue;
             }
-            idx = (idx+1)%n;
-            if(idx == start_idx){
-                break;
+            else{
+                return false;
             }
         }
         return true;
