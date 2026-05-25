@@ -1,18 +1,14 @@
 class Solution {
 public:
-    int minCostClimbingStairs(vector<int>& cost) {
-        int total = 0;
-        int r = cost.size() - 1;
-        while(r >= 1){
-            if(cost[r] < cost[r-1]){
-                total += cost[r];
-                r--;
-            }
-            else if(cost[r] >= cost[r-1]){
-                total += cost[r-1];
-                r = r-2;
-            }
+    int dp(int i, vector<int>& cost){
+        if(i ==0 or i == 1){
+            return cost[i];
         }
-        return total;
+        return cost[i] + min(dp(i-1,cost),dp(i-2,cost));
+    }
+    int minCostClimbingStairs(vector<int>& cost) {
+        int n = cost.size();
+        int res = min(dp(n-1,cost),dp(n-2,cost));
+        return res;
     }
 };
