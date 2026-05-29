@@ -18,6 +18,9 @@ public:
                 box.pop();
             }
         }
+        if(box.empty() == false){
+            return false;
+        }
         return true;
     }
 };
