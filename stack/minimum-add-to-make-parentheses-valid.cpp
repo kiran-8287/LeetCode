@@ -7,7 +7,12 @@ public:
                 count++;
             }
             else{
-                count--;
+                if(count > 0){
+                    count--;
+                }
+                else{
+                    count++;
+                }
             }
         }
         return abs(count);
