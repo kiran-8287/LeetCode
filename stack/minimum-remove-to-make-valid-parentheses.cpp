@@ -22,7 +22,7 @@ public:
         string res = "";
         for(char c: s){
             if(c != '!'){
-                res = res + c;
+                res += c;
             }
         }
         return res;
