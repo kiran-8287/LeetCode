@@ -1,18 +1,18 @@
 class Solution {
 public:
     long long minimumSteps(string s) {
-        int i = 0;
         int n = s.length();
-        long long count = 0;
-        for(int j = 0; j < n; j++){
-            if(s[j] != '1'){
-                s[j] = s[i];
-                s[i] = '0';\
-                if(i != j){
-                    count++;
-                }
-                i++;  
+        int count = 0;
+        int ones = 0;
+        int i = 0;
+        while(i < n){
+            if(s[i] == '1'){
+                ones+=1;
             }
+            else{
+                count+=ones;
+            }
+            i++;
         }
         return count;
     }
