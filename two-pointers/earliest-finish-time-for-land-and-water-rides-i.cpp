@@ -8,7 +8,7 @@ public:
             for(int j = 0; j < w; j++){
                 int time = landStartTime[i] + landDuration[i];
                 if(waterStartTime[j] > time){
-                    time += waterStartTime[j] + waterDuration[j];
+                    time = waterStartTime[j] + waterDuration[j];
                 }
                 else{
                     time += waterDuration[j];
@@ -23,7 +23,7 @@ public:
             for(int j = 0; j < l; j++){
                 int time = waterStartTime[i] + waterDuration[i];
                 if(landStartTime[j] > time){
-                    time += landStartTime[j] + landDuration[j];
+                    time = landStartTime[j] + landDuration[j];
                 }
                 else{
                     time += landDuration[j];
