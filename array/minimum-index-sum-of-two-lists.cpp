@@ -1,30 +1,32 @@
 class Solution {
 public:
     vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
-        unordered_map<string,int> map;
-        for(int i = 0; i < list1.size(); i++){
-            map[list1[i]] = -1;
+        unordered_map<string, int> pos;
+
+        for (int i = 0; i < list1.size(); i++) {
+            pos[list1[i]] = i;
         }
-        int res = INT_MAX;
-        vector<string> out;
-        for(int i = 0; i < list2.size(); i++){
-            if(map.find(list2[i]) != map.end()){
-                auto it = find(list1.begin(), list1.end(), list2[i]);
-                int j = it - list1.begin();
-                if(res >= i + j){
-                    res = i + j;
-                    map[list2[i]] = i + j;
+
+        int best = INT_MAX;
+        vector<string> ans;
+
+        for (int i = 0; i < list2.size(); i++) {
+            auto it = pos.find(list2[i]);
+
+            if (it != pos.end()) {
+                int sum = i + it->second;
+
+                if (sum < best) {
+                    best = sum;
+                    ans.clear();
+                    ans.push_back(list2[i]);
+                }
+                else if (sum == best) {
+                    ans.push_back(list2[i]);
                 }
             }
-            else{
-                map[list2[i]] = -1;
-            }
         }
-        for(auto& p: map){
-            if(p.second == res){
-                out.push_back(p.first);
-            }
-        }
-        return out;
+
+        return ans;
     }
 };
