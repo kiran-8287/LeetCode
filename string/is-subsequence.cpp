@@ -14,6 +14,7 @@ public:
                 return false;
             }
             l++;
+            r++;
         }
         if(l >= s.length()){
             return true;
