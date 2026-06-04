@@ -7,6 +7,9 @@ public:
             while(r < t.length() && s[l] != t[r]){
                 r++;
             }
+            if( t.length()-r < s.length()-l){
+                return false;
+            }
             if(r >=t.length()){
                 return false;
             }
