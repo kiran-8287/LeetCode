@@ -6,8 +6,10 @@ public:
             if(log == "./"){
                 continue;
             }
-            else if(log == "../" && s.empty() == false){
-                s.pop();
+            else if(log == "../"){
+                if(s.empty() == false){
+                    s.pop();
+                }
             }
             else{
                 s.push(log);
