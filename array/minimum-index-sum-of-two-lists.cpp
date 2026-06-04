@@ -16,6 +16,9 @@ public:
                     map[list2[i]] = i + j;
                 }
             }
+            else{
+                map[list2[i]] = -1;
+            }
         }
         for(auto& p: map){
             if(p.second == res){
