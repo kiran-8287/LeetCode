@@ -29,6 +29,7 @@ public:
             }
             curr = curr->next;
         }
+        temp->next = nullptr;
         return res.next;
     }
 };
