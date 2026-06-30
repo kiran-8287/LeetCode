@@ -16,7 +16,7 @@ public:
         ListNode temp(0);
         ListNode* end = &temp;
         while(one != nullptr and two != nullptr){
-            if(one->value < two->value){
+            if(one->val < two->val){
                 end->next = one;
                 one = one->next;
             }
@@ -36,6 +36,6 @@ public:
             two = two->next;
             end = end->next;
         }
-        return temp->next;
+        return temp.next;
     }
 };
