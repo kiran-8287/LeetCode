@@ -15,24 +15,24 @@ public:
         ListNode* fast = head;
         while(fast != nullptr && fast->next != nullptr){
             slow = slow->next;
-            fast = fast->next->next;
+            fast = fast->next->next;;
         }
         ListNode* prev = nullptr;
-        ListNode* next_node;;
         while(slow != nullptr){
-            next_node = slow->next;
-            slow->next = prev;
+            ListNode* temp = slow->next;
+            slow->next =  prev;
             prev = slow;
-            slow = next_node;
+            slow = temp;
         }
-        ListNode* right = prev;
-        ListNode* left = head;
-        while(right != nullptr){
-            if(left->val != right->val){
+        while(head != nullptr and prev != nullptr){
+            if(head->val == prev->val){
+                head = head->next;
+                prev = prev->next;
+                continue;
+            }
+            else{
                 return false;
             }
-            left = left->next;
-            right = right->next;
         }
         return true;
     }
