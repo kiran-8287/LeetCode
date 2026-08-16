@@ -10,21 +10,21 @@ public:
                 int b = (int)s.top();
                 s.pop();
                 s.push(a+b);}
-            if(c == "-"){
+            else if(c == "-"){
                 int a = (int)s.top();
                 s.pop();
                 int b = (int)s.top();
                 s.pop();
                 s.push(a+b);
                 s.push(a-b);}
-            if(c == "*"){
+            else if(c == "*"){
                 int a = (int)s.top();
                 s.pop();
                 int b = (int)s.top();
                 s.pop();
                 s.push(a+b);
                 s.push(a*b);}
-            if(c == "/"){
+            else if(c == "/"){
                 int a = (int)s.top();
                 s.pop();
                 int b = (int)s.top();
