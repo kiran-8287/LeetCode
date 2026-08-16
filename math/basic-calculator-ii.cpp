@@ -8,7 +8,7 @@ public:
             if(isdigit(s[i])){
                 n = n*10 + (s[i]-'0');
             }
-            if((!isdigit(s[i]) && s[i] != ' ') || i = s.size()-1){
+            if((!isdigit(s[i]) && s[i] != ' ') || i == s.size()-1){
                 if(op == '+'){
                     st.push(n);
                 }
@@ -16,12 +16,12 @@ public:
                     st.push(-n);
                 }
                 else if(op == '*'){
-                    int x = st.top()-'0';
+                    int x = st.top();
                     st.pop();
                     st.push(x*n);
                 }
                 else if(op == '/'){
-                    int x = st.top()-'0';
+                    int x = st.top();
                     st.pop();
                     st.push(x/n);
                 }
@@ -30,7 +30,7 @@ public:
             }
         }
         int sum = 0;
-        while(!s.empty()){
+        while(!st.empty()){
             sum += st.top();
             st.pop();
         }
