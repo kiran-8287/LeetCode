@@ -5,38 +5,38 @@ public:
         int out = 0;
         bool todo = false;
         for(char c: s){
-            if(c == " "){
+            if(c == ' '){
                 continue;
             }
-            if(c == "*" || c == "/"){
+            if(c == '*' || c == '/'){
                 todo = true;
             }
             st.push(c);
             if(todo == true){
-                int a = stoi(st.top());
+                int a = st.top()-'0';
                 st.pop();
-                string op = st.top();
+                char op = st.top();
                 st.pop();
-                int b = stoi(st.top());
+                int b = st.top()-'0';
                 st.pop();
-                if(op == "*"){
-                    st.push(b*a);
+                if(op == '*'){
+                    st.push((char)b*a);
                 }
                 else{
-                    st.push(b/a);
+                    st.push((char)b/a);
                 }
                 todo = false;
             }
         }
         while(!st.empty()){
-            int a = stoi(st.top());
+            int a = st.top()-'0';
             st.pop();
             string op = st.top();
             st.pop();
-            int b = stoi(st.top());
+            int b = st.top()-'0';
             st.pop();
             int res = 0;
-            if(op == "+"){
+            if(op == '+'){
                 res = b + a
             }
             else{
@@ -47,7 +47,7 @@ public:
                 break;
             }
             else{
-                s.push(res);
+                s.push((char)res);
             }
         }
         return out;
