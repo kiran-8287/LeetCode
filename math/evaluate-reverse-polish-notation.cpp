@@ -5,32 +5,29 @@ public:
         int sum = 0;
         for(string c: tokens){
             if(c == "+"){
-                int a = (int)s.top();
+                int a = s.top();
                 s.pop();
-                int b = (int)s.top();
+                int b = s.top();
                 s.pop();
                 s.push(a+b);}
             else if(c == "-"){
-                int a = (int)s.top();
+                int a = s.top();
                 s.pop();
-                int b = (int)s.top();
+                int b = s.top();
                 s.pop();
-                s.push(a+b);
-                s.push(a-b);}
+                s.push(b-a);}
             else if(c == "*"){
-                int a = (int)s.top();
+                int a = s.top();
                 s.pop();
-                int b = (int)s.top();
+                int b = s.top();
                 s.pop();
-                s.push(a+b);
                 s.push(a*b);}
             else if(c == "/"){
-                int a = (int)s.top();
+                int a = s.top();
                 s.pop();
-                int b = (int)s.top();
+                int b = s.top();
                 s.pop();
-                s.push(a+b);
-                s.push(a/b);}
+                s.push(b/a);}
             else{
                 int num = stoi(c);
                 s.push(num);
