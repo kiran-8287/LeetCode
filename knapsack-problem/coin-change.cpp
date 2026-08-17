@@ -1,21 +1,19 @@
 class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) {
-        sort(coins.begin(),coins.end());
-        if(amount == 0){return 0;}
-        int sum = amount;
-        int i = coins.size()-1;
-        int count = 0;
-        while(i >= 0 && sum >=0){
-            if(sum >= coins[i]){
-                count += sum/coins[i];
-                sum = sum - coins[i]*(sum/coins[i]);
+        vector<int> dp(amount+1,amount+1);
+        dp[0] = 0;
+        for(int i = 1; i <= amount; i++){
+            for(int c: coins){
+                if(i >= coin){
+                    dp[i] = min(dp[i],1+dp[i-c]);
+                }
             }
-            i--;
         }
-        if(count == 0 || sum != 0){
+        int ans = dp[amount];
+        if(ans == amount){
             return -1;
         }
-        return count;
+        return ans;
     }
 };
