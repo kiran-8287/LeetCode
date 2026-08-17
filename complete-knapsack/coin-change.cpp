@@ -5,13 +5,13 @@ public:
         dp[0] = 0;
         for(int i = 1; i <= amount; i++){
             for(int c: coins){
-                if(i >= coin){
+                if(i >= c){
                     dp[i] = min(dp[i],1+dp[i-c]);
                 }
             }
         }
         int ans = dp[amount];
-        if(ans == amount){
+        if(ans == amount+1){
             return -1;
         }
         return ans;
