@@ -9,7 +9,7 @@ public:
                 res.push_back(map[target-nums[i]]);
                 return res;
             }
-            map[nums[i]] = i;        
+            map[nums[i]] = i;
         }
         return res;
     }
