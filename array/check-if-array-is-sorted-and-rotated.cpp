@@ -1,21 +1,13 @@
 class Solution {
 public:
     bool check(vector<int>& nums) {
-        vector<int> temp = nums;
-        sort(temp.begin(), temp.end());
-
-        int k = 0;
-
-        while(temp[k] != nums[0]){
-            k++;
-        }
+        int count = 0;
 
         for(int i = 0; i < nums.size(); i++){
-            if(temp[(i+k)%nums.size()] != nums[i]){
-                return false;
-            }
+            if(nums[i] > nums[(i+1)%nums.size()])
+                count++;
         }
 
-        return true;
+        return count <= 1;
     }
 };
