@@ -1,16 +1,21 @@
 class Solution {
 public:
     bool check(vector<int>& nums) {
-        int n = nums.size();
-        int count = 0;
-        for(int i = 0; i < n; i++){
-            if(nums[i] > nums[(i+1)%n]){
-                count++;
+        vector<int> temp = nums;
+        sort(temp.begin(), temp.end());
+
+        int k = 0;
+
+        while(temp[k] != nums[0]){
+            k++;
+        }
+
+        for(int i = 0; i < nums.size(); i++){
+            if(temp[(i+k)%nums.size()] != nums[i]){
+                return false;
             }
         }
-        if(count <= 1){
-            return true;
-        }
-        return false;
+
+        return true;
     }
 };
