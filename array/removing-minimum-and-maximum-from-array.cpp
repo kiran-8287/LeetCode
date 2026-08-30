@@ -20,9 +20,15 @@ public:
         }
         int l = min(min_idx, max_idx);
         int r = max(min_idx,max_idx);
-        if(l+1+nums.size()-r < r+1){
+        if(l+1+nums.size()-r < r+1 && l+1+nums.size()-r < r-l+1){
             return l+1+nums.size()-r;
         }
-        return r+1;
+        else{
+            if(r+1 < r-l+1){
+                return r+1;
+            }
+            return r-l+1;
+        }
+        return 1;
     }
 };
