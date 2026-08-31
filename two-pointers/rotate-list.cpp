@@ -20,7 +20,13 @@ public:
             temp = temp->next;
             n++;
         }
+        if(k == n){
+            return head;
+        }
         k = k%n;
+        if(k == 0){
+            return head;
+        }
         ListNode* after = head;
         ListNode* before = nullptr;
         ListNode* temp1 = after;
